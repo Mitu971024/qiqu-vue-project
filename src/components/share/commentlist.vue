@@ -223,7 +223,7 @@
                 this.comment_msg.c_time = this.current_time;     // 发布时间
                 axios.post(this.$store.state.url + '/share/send', {c_msg:that.comment_msg})
                   .then(result=>{
-                    console.log(result.data.data);
+                    // console.log(result.data.data);
                   if (result.data.data == 1) {
                     that.getComment()
                     setTimeout(()=>{                             //提示评论成功

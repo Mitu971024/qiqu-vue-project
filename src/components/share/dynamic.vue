@@ -46,7 +46,10 @@
     computed:{
       url(){
         return this.$store.state.url;
-      }
+      },
+      index(){
+        return this.$store.state.index;
+      },
     },
     created(){
       this.getinfo();
@@ -64,29 +67,40 @@
       clear(){
         this.input_text = '';
       },
-      send() { //发送内容
-        if(this.input_text.trim() ==0 ){
-          this.openErr()
-        }
-        const that = this;
-        //发送表单数据
-        var myFormData = new FormData();
-        //依次添加多个文件
-        for(var i = 0 ; i<= this.images.length ; i++){
-          myFormData.append('filename', this.images[i]);
-        }
-        //添加其他的表单元素
-        myFormData.append("u_pic",this.u_pic);
-        myFormData.append("u_name",this.u_name);
-        myFormData.append("current_time",this.current_time);
-        myFormData.append("contentData",this.input_text);
-        let config = { headers: { 'Content-Type': 'multipart/form-data'}};
-        axios.post(this.$store.state.url + '/share/sendinfo', myFormData,config)
-          .then(result =>{
-            that.input_text = '';
-            that.current_info= true;
-            that.sendsuccess();
+      send() {
+        if(this.$store.state.index !== 1){
+          this.$message({
+            showClose: true,
+            message: '请先登录！',
+            type: 'info'
           });
+          this.$router.push({path: '/login'})
+        }
+        if(this.$store.state.index === 1){
+          //发送内容
+          if(this.input_text.trim() ==0 ){
+            this.openErr()
+          }
+          const that = this;
+          //发送表单数据
+          var myFormData = new FormData();
+          //依次添加多个文件
+          for(var i = 0 ; i<= this.images.length ; i++){
+            myFormData.append('filename', this.images[i]);
+          }
+          //添加其他的表单元素
+          myFormData.append("u_pic",this.u_pic);
+          myFormData.append("u_name",this.u_name);
+          myFormData.append("current_time",this.current_time);
+          myFormData.append("contentData",this.input_text);
+          let config = { headers: { 'Content-Type': 'multipart/form-data'}};
+          axios.post(this.$store.state.url + '/share/sendinfo', myFormData,config)
+            .then(result =>{
+              that.input_text = '';
+              that.current_info= true;
+              that.sendsuccess();
+            });
+        }
       },
       openErr() {                                             //提示用户输入不能为空
         this.$message({

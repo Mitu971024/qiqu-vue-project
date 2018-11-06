@@ -108,7 +108,7 @@
       let _this = this;
       axios.post(_this.$store.state.url + '/bike/details/showevaluate', {cNo: _this.$route.params.cNo})
         .then(function (response) {
-          console.log(response.data);
+          // console.log(response.data);
           _this.info = response.data.data;
           _this.url1 = _this.$store.state.url
         }).catch(function (error) {
@@ -116,7 +116,7 @@
       });
       axios.post(_this.$store.state.url + '/bike/details', {cNo: _this.$route.params.cNo})
         .then(function (response) {
-          console.log(response.data);
+          // console.log(response.data);
           _this.info1 = response.data.data;
           console.log('aaa');
           console.log(_this.info1[0]);
@@ -128,7 +128,7 @@
     methods: {
       addinfo() {
         let _this = this;
-        if (this.$store.state.index == 1) {
+        if (this.$store.state.index === 1) {
           if (_this.textareadata) {
             axios.post(`${_this.$store.state.url}/bike/details/addevalute`,
               {
@@ -137,8 +137,8 @@
                 cNo: _this.$route.params.cNo,
                 etime: _this.eTime,
               }).then(function (result) {
-              console.log(result.data);
-              console.log(_this.eTime)
+              // console.log(result.data);
+              // console.log(_this.eTime)
               // this.reload()
             });
             // this.reload()
@@ -156,7 +156,12 @@
             });
           }
         }
-        if (this.$store.state.index != 1) {
+        if (_this.$store.state.index !== 1) {
+          _this.$message({
+            showClose: true,
+            message: '请先登录！',
+            type: 'info'
+          });
           _this.$router.push({path: '/login'})
         }
       },

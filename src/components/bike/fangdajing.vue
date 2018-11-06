@@ -39,7 +39,7 @@
         <div class="number">
           <span >该商品当前库存为{{item.cNumber}}件</span>
         </div>
-        <router-link to="/shoppingcart"><button class="shoppingcart" @click="addshop">立即购买</button></router-link>
+        <button class="shoppingcart" @click="addshop">立即购买</button>
       </el-col>
     </div>
   </div>
@@ -69,7 +69,10 @@
     computed:{
       url(){
         return this.$store.state.url;
-      }
+      },
+      index(){
+        return this.$store.state.index;
+      },
     },
     methods: {
       show: function (index) {
@@ -83,27 +86,31 @@
         this.number++;
       },
       addshop(){
-        let _this = this;
-        axios.post(_this.$store.state.url + '/bike/details/addshop',{
-          mId: window.localStorage.mId,
-          cNo:_this.$route.params.cNo,
-        }).then(function (response) {
-          console.log(response.data);
-        })
-        // _this.$message({
-        //   showClose: true,
-        //   message: '',
-        //   type: 'success'
-        // });
-        alert("已成功添加到购物车!")
-
+        if(this.$store.state.index !== 1){
+          this.$message({
+            showClose: true,
+            message: '请先登录！',
+            type: 'info'
+          });
+          this.$router.push({path: '/login'})
+        }else {
+          let _this = this;
+          axios.post(_this.$store.state.url + '/bike/details/addshop',{
+            mId: window.localStorage.mId,
+            cNo:_this.$route.params.cNo,
+          }).then(function (response) {
+            // console.log(response.data);
+          })
+          alert("已成功添加到购物车!");
+          this.$router.push({path: '/shoppingcart'})
+        }
       }
     },
     created() {
       let _this = this;
       axios.post(_this.$store.state.url + '/bike/details',
         {cNo:_this.$route.params.cNo}).then(function (response) {
-        console.log("00"+response.data.data);
+        // console.log("00"+response.data.data);
         _this.mydata = response.data.data;
 
       }).catch(function (error) {

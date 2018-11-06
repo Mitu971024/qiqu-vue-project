@@ -155,7 +155,7 @@
     methods: {
       onSelected(data) {
         this.address= data.province.value+data.city.value+data.area.value;
-        console.log(this.address)
+        // console.log(this.address)
       },
       addExp: function () {
         let _this = this;
@@ -166,8 +166,7 @@
             mId: window.localStorage.mId,
           }
         ).then(function (response) {
-          console.log(response.data);
-          console.log("123"+_this.address);
+          // console.log(response.data);
         })
         alert("添加成功");
         _this.sName = null
@@ -180,7 +179,7 @@
         // setTimeout(function() {
         let _this = this
         axios.post(_this.$store.state.url + '/order/showexp').then(function (response) {
-          console.log(response.data);
+          // console.log(response.data);
           _this.exp = response.data.data;
         }).catch(function (error) {
           console.log(error);
@@ -199,7 +198,7 @@
             oImg: goods[i].cBigimg,
             mId: goods[i].mId,
           }).then(function (response) {
-            console.log(response.data);
+            // console.log(response.data);
           })
         }
       }

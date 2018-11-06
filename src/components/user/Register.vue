@@ -109,7 +109,7 @@
           console.log(self.Num)
           // 短信验证
           // axios.get('/proxy?mobile=' + self.mobile + '&tpl_id=107464&tpl_value=%23code%23%3D' +
-          // self.Num + '&key=18fe7a1509f021d5af8849af2d6a370c')
+          // self.Num + '&key=聚合申请的密钥')
           //   .then((res)=>{
           //  //   console.log(res)
           //   }).catch(err=>{console.log(err)})

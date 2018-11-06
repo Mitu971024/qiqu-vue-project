@@ -95,9 +95,9 @@
             mId:window.localStorage.mId,
             cNo: cNo,
           }).then(function (result) {
-          console.log(result.data);
-          console.log(mId)
-          console.log(cNo)
+          // console.log(result.data);
+          // console.log(mId)
+          // console.log(cNo)
         });
         window.location.reload();
       }
@@ -106,7 +106,7 @@
       let _this=this;
       _this.myPic = _this.$store.state.url + window.localStorage.mImg;
       axios.post(_this.$store.state.url + '/order/showorder').then(function (response) {
-        console.log(response.data);
+        // console.log(response.data);
         _this.order = response.data.data;
       }).catch(function (error) {
         console.log(error);

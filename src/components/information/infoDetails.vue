@@ -75,7 +75,7 @@
         .then(function (result) {
           let info = eval("(" + result.request.response + ")");
           _this.details = info.data[0][0];
-          console.log(info.data[0][0]);
+          // console.log(info.data[0][0]);
           _this.Time = _this.details.zTime.substring(0,10)
           _this.Img1 = _this.details.zdImg.split(',')[0]
           _this.Img2 = _this.details.zdImg.split(',')[1]

@@ -66,7 +66,7 @@
       let _this = this;
       axios.post(_this.$store.state.url + '/bike/allbike')
         .then(function (response) {
-          console.log(response.data);
+          // console.log(response.data);
           _this.info = response.data.data;
         }).catch(function (error) {
         console.log(error);

@@ -53,7 +53,7 @@
     created(){
       let _this=this
       axios.post(_this.$store.state.url + '/order/showexp').then(function (response) {
-        console.log(response.data);
+        // console.log(response.data);
         _this.exp = response.data.data;
       }).catch(function (error) {
         console.log(error);
