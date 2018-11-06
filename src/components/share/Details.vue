@@ -108,16 +108,8 @@
           if (that.tex.length == that.textArr.length){
             that.x = 0;
             clearInterval(that.timer);
-            that.open()
           }
         },70);
-      },
-      open() {
-        this.$message({
-          showClose: true,
-          message: '文章已完',
-          type: 'success'
-        });
       },
     }
   }
