@@ -225,12 +225,13 @@
   .rowB1{padding-top: 20px;}
   .top{
     width: 100%;
-    height:660px;
+    height:666px;
     padding-top: 30px;
-    background-color: rgba(250,165,145,0.2);
+    background-color: rgba(250,250,250,1);
     border-radius: 10px;
     text-align: center;
     position:relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
   }
   .top .toptitle{
     width: 20px;
@@ -243,9 +244,9 @@
   }
   .top .img-1 {
     position:relative;
-    width: 70%;
-    height:500px;
-    margin:10px auto;
+    width: 80%;
+    height:540px;
+    margin:0 auto;
     display:inline-block;
     overflow:hidden;
     background:#fff;

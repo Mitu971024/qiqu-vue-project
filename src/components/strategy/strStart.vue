@@ -173,7 +173,7 @@
   .topleft{
     width: 49%;
     height: 329px;
-    border: 10px solid #f5f5f5;
+    border: 10px solid white;
     background-image: url("../../assets/images/strleft1.jpg");
     display: block;
     float: left;
@@ -189,7 +189,7 @@
   .topright{
     width: 49%;
     height: 329px;
-    border: 10px solid #f5f5f5;
+    border: 10px solid white;
     background-image: url("../../assets/images/strright1.jpg");
     display: block;
     float: right;

@@ -15,7 +15,7 @@
               <span :mPwd="mPwd">{{tiShi2}}</span>
             </div>
             <div class="text-right formP">
-              <p><a class="aStyle">忘记密码</a></p>
+              <p><a class="aStyle" @click="Rep">忘记密码</a></p>
             </div>
           </form>
           <el-button :plain="true" class="formStyle2" @click="userLogin">登录</el-button>
@@ -65,7 +65,7 @@
           mLogin:this.mobile,
           mPassword:this.mPwd,
         }).then(function (res) {
-          if(res.data.data == 2){
+          if(res.data.data === 2){
             ha.tiShi = '账号为空，或者手机号错误'
           }else {
             ha.tiShi = ''
@@ -81,7 +81,7 @@
           mLogin:this.mobile,
           mPassword:this.mPwd,
         }).then(function (res) {
-          if(res.data.data == 3){
+          if(res.data.data === 3){
             ha.tiShi2 = '密码为空，或者密码错误'
           }else{
             ha.tiShi2 = ''
@@ -151,6 +151,9 @@
             });
         }
       },
+      Rep(){
+        this.$router.push('/Repassword')
+      }
     }
   }
 </script>

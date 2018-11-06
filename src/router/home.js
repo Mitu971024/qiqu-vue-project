@@ -3,6 +3,7 @@ import User from '../components/user/User.vue'
 import Setting from '../components/user/Setting.vue'
 import Login from '../components/user/Login.vue'
 import Register from '../components/user/Register.vue'
+import Repassword from '../components/user/Repassword.vue'
 
 export default [
   {
@@ -15,4 +16,5 @@ export default [
   },
   {path: '/login',component:Login},
   {path: '/register',component:Register},
+  {path: '/repassword',component:Repassword},
 ]

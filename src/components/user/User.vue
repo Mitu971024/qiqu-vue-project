@@ -14,7 +14,7 @@
       </div>
       <div class="row rowH2 video1">
         <div class="col-xs-5 col-xs-offset-1">
-          <--../../assets/video/Q1.mp4  此视频太大，没有进行上传，可以自己添加视频 -->
+          <!--../../assets/video/Q1.mp4  此视频太大，没有进行上传，可以自己添加视频-->
           <video src="" controls muted></video>
         </div>
         <div class="col-xs-5 bg-2">

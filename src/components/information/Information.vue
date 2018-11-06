@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-1">
     <div class="container">
       <router-view></router-view></div>
     <goTop></goTop>
@@ -21,5 +21,5 @@
 
 <style scoped>
   .marginT{margin-top: 25px;}
-  /*.bg-1{background-color: #f5f5f5}*/
+  .bg-1{background-color: #f5f5f5}
 </style>

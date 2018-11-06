@@ -130,12 +130,12 @@
                 <span :mobile="mobile">{{tiShi1}}</span>
               </div>
             </div>
-            <div class="row t2">
+            <div class="row t2 Span">
               <div class="col-xs-2 col-xs-offset-3">
                 <input type="text" class="form-control" placeholder="请输入验证码" v-model="vCode">
               </div>
               <button type="button" class="btn btn-default col-xs-2" @click="sendCode">获取短信验证码</button>
-              <span :vCode="vCode">{{tiShi3}}</span>
+              <span :vCode="vCode" class="span1">{{tiShi3}}</span>
             </div>
             <div class="row t2">
               <div class="col-xs-4 text-right t5">
@@ -269,8 +269,7 @@
     watch:{
       mobile(newmobile,oldmobile){
         const ha = this;
-        const object=eval("("+ window.localStorage.getItem("data") +")");
-        if(ha.mobile != object.mLogin){
+        if(ha.mobile !== window.localStorage.mLogin){
           ha.tiShi1 = '手机号为空或者您输入的手机号不正确！'
         }else{
           ha.tiShi1 = ''
@@ -278,7 +277,7 @@
       },
       vCode(newmobile,oldmobile){
         const ha = this;
-        if(ha.vCode != ha.Num){
+        if(ha.vCode !== ha.Num){
           ha.tiShi3 = '验证码为空或者输入的验证码不正确！'
         }else {
           ha.tiShi3 = ''
@@ -295,7 +294,7 @@
       },
       Pwd2(newmPwd,oldmPwd){
         const ha = this;
-        if(ha.Pwd2 != ha.Pwd1){
+        if(ha.Pwd2 !== ha.Pwd1){
           ha.tiShi5 = '请输入相同的密码'
         }else {
           ha.tiShi5 = ''
@@ -589,6 +588,12 @@
     height: 200px;
   }
   .t2{margin-top: 3.5%;}
+  .Span{position: relative;}
+  .Span .span1{
+    position: absolute;
+    left: 28%;
+    bottom: -18px;
+  }
   .t5{margin-top: 0.7%;}
   .button1{margin-top: 8%;}
   .button1>button{width: 16%;}

@@ -21,6 +21,6 @@
 </script>
 
 <style scoped>
-  .rowB1{padding-top: 20px;}
+  .rowB1{padding-top: 20px;background-color: #f5f5f5;}
   .marginT{margin-top: 25px;}
 </style>
