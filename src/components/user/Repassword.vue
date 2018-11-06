@@ -185,11 +185,12 @@
 <style scoped>
   .Rep{
     padding-bottom: 50px;
+    height: 530px;
   }
-  .row{padding: 0;}
+  .row{padding: 0;margin: 0;}
   .t2{margin-top: 3.5%;}
   .t5{margin-top: 0.7%;}
-  .button1{margin-top: 8%;}
+  .button1{margin-top: 6%;}
   .button1>button{width: 16%;}
   .Span{position: relative;}
   .Span .span{
