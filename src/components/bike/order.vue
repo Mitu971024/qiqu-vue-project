@@ -99,11 +99,7 @@
           console.log(mId)
           console.log(cNo)
         });
-        this.$message({
-          showClose: true,
-          message: '订单删除成功！',
-          type: 'success'
-        });
+        window.location.reload();
       }
     },
     created(){

@@ -94,9 +94,9 @@
             mId: mId,
             cNo: cNo,
           }).then(function (result) {
-          console.log(result.data);
+          // console.log(result.data);
         });
-        window.location.reload()
+        window.location.reload();
       }
     },
     created(){
