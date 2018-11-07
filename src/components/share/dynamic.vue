@@ -68,7 +68,7 @@
         this.input_text = '';
       },
       send() {
-        if(this.$store.state.index !== 1){
+        if(this.$store.state.index != 1){
           this.$message({
             showClose: true,
             message: '请先登录！',
@@ -76,7 +76,7 @@
           });
           this.$router.push({path: '/login'})
         }
-        if(this.$store.state.index === 1){
+        if(this.$store.state.index == 1){
           //发送内容
           if(this.input_text.trim() ==0 ){
             this.openErr()

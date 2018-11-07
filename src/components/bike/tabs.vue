@@ -128,7 +128,7 @@
     methods: {
       addinfo() {
         let _this = this;
-        if (this.$store.state.index === 1) {
+        if (this.$store.state.index == 1) {
           if (_this.textareadata) {
             axios.post(`${_this.$store.state.url}/bike/details/addevalute`,
               {
@@ -156,7 +156,7 @@
             });
           }
         }
-        if (_this.$store.state.index !== 1) {
+        if (_this.$store.state.index != 1) {
           _this.$message({
             showClose: true,
             message: '请先登录！',

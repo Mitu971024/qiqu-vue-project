@@ -86,7 +86,7 @@
         this.number++;
       },
       addshop(){
-        if(this.$store.state.index !== 1){
+        if(this.$store.state.index != 1){
           this.$message({
             showClose: true,
             message: '请先登录！',

@@ -164,7 +164,7 @@
         },
         show(e,cur_comId){                                      //判断评论或者回复
             // console.log(e.target.placeholder);
-            if(this.$store.state.index !== 1){
+            if(this.$store.state.index != 1){
               this.openLogin();
             }else{
               this.form.whichOne = e.target.innerHTML || e.target.placeholder;
