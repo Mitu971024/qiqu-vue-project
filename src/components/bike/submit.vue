@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="submit">
+    <div class="submit animated bounceInLeft">
+      <hr>
       <h5>ok,您的订单已经生成啦，赶紧去付款呐，30分钟之内未付款，订单将会自动取消。</h5>
       <img src="../../assets/img/bike1.png">
       <ul>
@@ -64,7 +65,7 @@
 </script>
 
 <style scoped>
-
+  hr{border-top: 1px solid #ff7e44}
   .submit{
     /*border-top:1px solid orangered;*/
     width: 70%;
