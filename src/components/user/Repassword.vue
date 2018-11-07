@@ -1,6 +1,10 @@
 <template>
   <div>
     <div class="Rep">
+      <div class="head">
+        <h2 class="text-left formStyle1">找回密码</h2>
+        <hr/>
+      </div>
       <div class="row t2">
         <div class="col-xs-4 col-xs-offset-1 text-right t5">
           手机号 ：
@@ -39,7 +43,7 @@
         <el-button :plain="true" type="button" class="btn btn-default" @click="modPwd">修改密码</el-button>
       </div>
     </div>
-    <app-foot></app-foot>
+    <app-foot class="foot"></app-foot>
   </div>
 
 </template>
@@ -183,10 +187,19 @@
 </script>
 
 <style scoped>
-  .Rep{
-    padding-bottom: 50px;
-    height: 530px;
+  .foot{
+    margin-top: 50px;
   }
+  .Rep{
+    padding-bottom:80px;
+    height: 600px;
+  }
+  .head{
+    width: 67.5%;
+    margin: 0 auto;
+  }
+  .head hr{border-top: 2px solid #999;}
+  .formStyle1{margin-top:50px;}
   .row{padding: 0;margin: 0;}
   .t2{margin-top: 3.5%;}
   .t5{margin-top: 0.7%;}
