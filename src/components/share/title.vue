@@ -24,6 +24,6 @@
     line-height: 60px;
     color: rgb(80,80,80);
     border-bottom: 2px solid cadetblue;
-    margin: 30px 160px 30px 290px;
+    margin: 30px 210px;
   }
 </style>
