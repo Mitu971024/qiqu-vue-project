@@ -17,6 +17,7 @@
         </div>
       </div>
       <showlist :current_info="current_info"></showlist>
+      <GoTop></GoTop>
     </div>
     <app-foot></app-foot>
   </div>
@@ -25,6 +26,7 @@
 <script>
   import axios from 'axios'
   import Foot from '../Foot'
+  import GoTop from './gotop'
   import showlist from './showlist';
   import moment from 'moment';
   export default {
@@ -32,6 +34,7 @@
     components:{
       showlist,
       "app-foot":Foot,
+      GoTop,
     },
     data(){
       return{

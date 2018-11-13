@@ -20,7 +20,7 @@
     </div>
     <button class="btn btn-lg btn-info">已经到底了</button>
     <div class="shadow" @click="hidebig">
-      <img :src='`${HImg}` + current_url' alt="">
+      <img :src='`${HImg}/uploadfiles/` + current_url' alt="">
     </div>
   </div>
 </template>

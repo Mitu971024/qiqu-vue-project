@@ -12,7 +12,7 @@
           <ul class="com_list">
             <li v-for="(commsg ,index) in comdata" :key="index">
               <div class="com_box">
-                <div class="img_box"><img :src="commsg.user_pic" alt=""></div>
+                <div class="img_box"><img :src="`${Picurl}` + commsg.user_pic" alt=""></div>
                 <div class="word_box">
                   <span class ="user_name">{{commsg.user_name}}</span>
                   <span class ="time">{{commsg.com_time}}</span>
@@ -23,7 +23,7 @@
               <ul class="reply_list">
                 <li v-for="replycom in commsg.replydata">
                   <div class="rep_box">
-                    <div class="img_box"><img :src="replycom.user_pic" alt=""></div>
+                    <div class="img_box"><img :src="`${Picurl}` + replycom.user_pic" alt=""></div>
                     <div class="word_box">
                       <span class ="user_name">{{replycom.user_name}}</span>
                       <span class ="time">{{replycom.reply_time}}</span>
@@ -60,6 +60,7 @@
         name: "commentlist",
       data(){
           return {
+            Picurl:'',
             comdata:null,    //评论内容
             replydata:null,  //回复内容
             newReply:[],     //整理回复数据所需容器
@@ -122,6 +123,7 @@
         // console.log( obj.mName, obj.mImg ,obj.mId)
       },
       mounted(){
+        this.Picurl = this.$store.state.url;
         this.getComment();
         this.getdate();
         setTimeout(()=>{
