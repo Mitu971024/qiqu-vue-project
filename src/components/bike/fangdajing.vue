@@ -39,7 +39,7 @@
         <div class="number">
           <span >该商品当前库存为{{item.cNumber}}件</span>
         </div>
-        <button class="shoppingcart" @click="addshop">立即购买</button>
+        <button class="shoppingcart" @click="addshop">加入到购物车</button>
       </el-col>
     </div>
   </div>
@@ -101,8 +101,12 @@
           }).then(function (response) {
             // console.log(response.data);
           })
-          alert("已成功添加到购物车!");
-          this.$router.push({path: '/shoppingcart'})
+          // alert("已成功添加到购物车!");
+          this.$message({
+            showClose: true,
+            message: '已成功添加到购物车!',
+            type: 'success'
+          });
         }
       }
     },

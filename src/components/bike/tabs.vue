@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-tabs v-model="activeName" @tab-click="handleClick" class="el-tabs">
-      <el-tab-pane class="details" label="商品详情" name="first" style="">
+      <el-tab-pane class="details" label="商品详情" name="second" style="">
         <div class="d-one" v-for="item in info1">
           <div>品牌名称：Giant/捷安特</div>
           <div>产品参数：</div>
@@ -21,16 +21,22 @@
           <img :src="cImg">
         </div>
       </el-tab-pane>
-      <el-tab-pane label="评价" name="second">
+      <el-tab-pane label="评价" name="first">
         <div class="evaluate">
           <div class="head">
+            <!--<div class="block">-->
+              <!--<span class="demonstration"></span>-->
+              <!--<el-rate-->
+                <!--v-model="value2"-->
+                <!--:colors="['#99A9BF', '#F7BA2A', '#FF9900']">-->
+              <!--</el-rate>-->
+              <!--满意度-->
+            <!--</div>-->
             <div class="block">
               <span class="demonstration"></span>
-              <el-rate
-                v-model="value2"
-                :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
+              <el-rate v-model="value5" disabled text-color="#ff9900" >
               </el-rate>
-              满意度
+              棒棒哒
             </div>
             <div class="line"></div>
             <div class="b-one">
@@ -93,7 +99,7 @@
         eTime: '',
         cImg1: [],
         url1: '',
-        value2: null,
+        value5: 5,
       }
     },
     computed: {
@@ -261,11 +267,12 @@
   }
 
   button {
+    margin-top: 10px;
     width:75px;
     height: 44px;
     margin-left:56%;
     font-size: 14px;
-    background-color: #68c82a;
+    background-color: olivedrab;
     color: white;
     border:0;
 

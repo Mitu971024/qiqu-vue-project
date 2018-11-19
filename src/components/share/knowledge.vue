@@ -62,7 +62,7 @@
     background: url("../../assets/images/loding.gif") no-repeat center;
   }
   .box ul li:hover {
-    border-color: #5F9EA0;
+    border-color: olivedrab;
   }
   .box ul li:hover img {
     transform: scale3d(1.2,1.2,1.2) rotateZ(360deg);
@@ -115,5 +115,7 @@
     display: block;
     width: 100px;
     margin: 0 auto 50px;
+    background-color: olivedrab;
+    border: none;
   }
 </style>

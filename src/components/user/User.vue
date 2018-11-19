@@ -15,7 +15,7 @@
       <div class="row rowH2 video1">
         <div class="col-xs-5 col-xs-offset-1">
           <!--../../assets/video/Q1.mp4  此视频太大，没有进行上传，可以自己添加视频-->
-          <video src="" controls muted></video>
+          <video src="../../assets/video/Q1.mp4" controls muted></video>
         </div>
         <div class="col-xs-5 bg-2">
           <p class="text text-left pStyle">
@@ -213,7 +213,7 @@
   .carousel1{padding: 0;}
   .bg-1{background-color: rgb(237,237,238);}
   .bg-2{margin-top: 1%;}
-  .bg-2:hover{border:2px dashed pink;border-radius:10px;}
+  .bg-2:hover{border:2px dashed olivedrab;border-radius:10px;}
   .rowH1{margin-top: 10px;}
   .rowH2{margin-top: 20px;}
   .rowH3{margin-bottom: 20px;}
@@ -329,13 +329,13 @@
     cursor: pointer;
   }
   .centertitle:hover{
-    color:red;
+    color:olivedrab;
   }
   .infoBox .detail{
     cursor: pointer;
     margin-top: 10%;
   }
-  h2,h3{color: gray;}
+  h2,h3{color: #666;}
   .infoBox h3{margin-bottom: 5%;}
   .pStyle{position: relative;}
   .pStyle:hover{
@@ -345,7 +345,7 @@
     background:none;
     transition:ease 1s;
   }
-  .pStyle:hover .line{background: pink;}
+  .pStyle:hover .line{background: olivedrab;}
   .pStyle .line-top{
     width:0;
     height:2px;
@@ -364,7 +364,8 @@
     left:-2px;
     bottom:0;}
   .pStyle:hover .line-bottom{height:100%;bottom: 0;}
-  .pStyle .line-left{width:0;
+  .pStyle .line-left{
+    width:0;
     height:2px;
     right:0;
     bottom:-2px;}

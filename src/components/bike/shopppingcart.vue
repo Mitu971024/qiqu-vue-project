@@ -8,33 +8,33 @@
         <hr>
         <div class="s-one">
           <ul>
-            <li>选择</li>
-            <li>商品详情</li>
-            <li>单价(元)</li>
-            <li>数量</li>
-            <li>小计</li>
-            <li>操作</li>
+            <li class="ss5">选择</li>
+            <li class="ss">商品详情</li>
+            <li class="ss1">单价(元)</li>
+            <li class="ss2">数量</li>
+            <li class="ss3">小计</li>
+            <li class="ss4">操作</li>
           </ul>
         </div>
       </div>
       <div class="s-two" v-for="item in good">
-        <span><input type="checkbox" v-model="checkname" :value="item"> </span>
+        <span class="s-1"><input type="checkbox" v-model="checkname" :value="item"> </span>
         <span class="s2"><img :src="item.cBigimg.split(',')[0]" class="s1">
             {{item.cIntr}}
-      </span>
+        </span>
         <span class="s3">￥{{item.cPrice}}</span>
-        <span>
-      <button class="addNum" @click="add(item)">+</button>
-      <input id="num" type="text" class="quantity" v-model="item.number"  />
-      <button class="sub" @click="sub(item)">-</button>
-      </span>
+        <span class="s-2">
+          <button class="addNum" @click="add(item)">+</button>
+          <input id="num" type="text" class="quantity" v-model="item.number"  />
+          <button class="sub" @click="sub(item)">-</button>
+        </span>
         <span class="s4">&nbsp;&nbsp;{{item.cPrice*item.number}}</span>
-        <span><button class="delete" @click="delet(item.mId,item.cNo)">删除</button></span>
+        <span class="s5"><button class="delete" @click="delet(item.mId,item.cNo)">删除</button></span>
       </div>
       <div class="s-three">
         <p>合计：{{total}}</p>
         <button>取消购买</button>
-        <router-link to="/confirm"><button @click="send1">立即购买</button></router-link>
+        <button @click="send1">立即购买</button>
       </div>
       <router-view></router-view>
     </div>
@@ -77,6 +77,15 @@
     methods: {
       send1(){
         this.$store.state.checkgood=this.checkname
+        if(this.checkname.length<1){
+          this.$message({
+            showClose: true,
+            message: '请选择商品',
+            type: 'info'
+          });
+        }else{
+          this.$router.push("/confirm")
+        }
       },
       sub: function (item) {
         if(item.number>1){
@@ -159,23 +168,41 @@
   .s-one{
     height: 40px;
   }
+  .shopping ul li{width: 155px;}
+  .ss5{text-align: left;margin-left: 35px;}
+  .ss{text-align: left;}
   .s-two{
     /*border-top:1px solid #cecece;*/
     width: 70%;
-    margin-left: 14%;
+    margin-left: 10%;
   }
   .s-two img{
 
     height: 60px;
     width: 60px;
   }
-  .s-two span{
+  .s-two .s-1{
     width: 80px;
-    margin-left: 7%;
+    margin-left: 11%;
   }
-
+  .s-two .s2{
+    margin-left: 8%;
+  }
+  .s-two .s-2{
+    margin-left: 9%;
+  }
+  .s-two .s3{
+    margin-left: 9%;
+  }
+  .s-two .s4{
+    margin-left: 8%;
+  }
+  .s-two .s5{
+    margin-left: 10%;
+  }
   #num{
     width: 40px;
+    text-align: center;
   }
   .s-three{
     margin-left: 44%;
@@ -208,7 +235,6 @@
     border: 0;
     background-color: #f28918;
     color: #fafafa;
-
   }
   .foot{margin-top: 50px;}
 </style>

@@ -103,9 +103,5 @@
     color: #f5f5f5;
 
   }
-  p:hover{
-    color: #5f9ea0;
-
-  }
 </style>
 

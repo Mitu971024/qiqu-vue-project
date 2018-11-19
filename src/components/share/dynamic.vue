@@ -156,7 +156,7 @@
     font-family: '微软雅黑';
     font-size: 26px;
     font-style: italic;
-    color: lightseagreen;
+    color: olivedrab;
     margin: 0;
     padding-top: 10px;
   }
@@ -164,7 +164,7 @@
     display: inline-block;
     float: right;
     margin-top: 32px;
-    color: lightseagreen;
+    color: olivedrab;
     font-size: 12px;
     font-style: italic;
   }
@@ -181,7 +181,6 @@
     display: block;
     width: 50px;
     height: 50px;
-    /*background: lightseagreen;*/
     font-size: 50px;
     line-height: 50px;
   }
@@ -196,7 +195,7 @@
     width: 400px;
     height: 100px;
     outline: none;
-    border: 1px solid lightseagreen;
+    border: 1px solid olivedrab;
     border-radius: 5px;
     font-size: 14px;
     text-indent: 1em;
@@ -217,10 +216,10 @@
   .send_temp button{
     width: 80px;
     height: 30px;
-    background: lightseagreen;
+    background: olivedrab;
     border-radius: 5px;
     line-height: 30px;
-    border: 1px solid dodgerblue;
+    border: 1px solid olivedrab;
     font-size: 14px;
     font-family: "微软雅黑";
     color: #eec;

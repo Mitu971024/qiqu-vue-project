@@ -4,7 +4,7 @@
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="collapse navbar-collapse marginT row">
-            <div class="col-xs-4 col-xs-offset-4">
+            <div class="col-xs-4 col-xs-offset-4 s1">
               <ul class="nav navbar-nav">
                 <router-link tag="li" role="presentation" to="/" exact><a>网站首页</a></router-link>
                 <router-link tag="li" role="presentation" to="/" exact><a>关于我们</a></router-link>
@@ -39,7 +39,10 @@
     height: 100px;
     background-color: rgb(69,69,69);
   }
-  .Pcolor{color: #9d9d9d;}
+  .s1{
+    margin-left: 550px;
+  }
+  .Pcolor{color: #9d9d9d;margin-left: 125px;}
   .marginT{margin-top: 25px;}
 </style>
 

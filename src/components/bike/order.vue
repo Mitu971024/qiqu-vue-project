@@ -31,7 +31,7 @@
           <div v-if="isshow == 2" ></div>
           <div v-if="isshow == 3" ></div>
           <div v-if="isshow == 4" ></div>
-          <router-link tag="button" to="/bike" class="btn btn-default button1">返回装备页</router-link>
+          <el-button :plain="true" type="button" class="btn btn-default button1" @click="toBike">返回装备页</el-button>
         </div>
       </div>
     </div>
@@ -61,6 +61,9 @@
       }
     },
     methods:{
+      toBike(){
+        this.$router.push('/bike');
+      },
       liOne(){
         this.isshow = 1;
         this.$refs.liStyle1.className = 'col-xs-3 liActive';
@@ -179,12 +182,16 @@
     margin-left: 22%;
     /*margin-top: 1%;*/
   }
-  button{
+  .ti button{
     width: 100px;
     height: 40px;
     border: none;
     background-color: #7d7778;
     color: white;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+  .button1{
     margin-left: 5%;
     margin-top: 5%;
   }
@@ -216,7 +223,7 @@
     width: 60px;
     height: 30px;
     border: none;
-    background-color: rgba(108, 102, 103, 0.4);
+    background-color: olivedrab;
     color: white;
     margin-left: 73%;
     margin-top: -7%;

@@ -43,11 +43,18 @@
         }
       },
       watch:{
-        "current_info"(to, from){
-          if (this.current_info==true) {
-              this.getImg();
+        // "current_info"(value, oldvalue){
+        //   console.log(value)
+        //   if (value) {
+        //     this.getImg();
+        //   }
+        // },
+        "current_info"(value,oldvalue){
+          const self = this;
+          if(value){
+            self.getImg();
           }
-        },
+        }
       },
       created(){
         this.getImg();
@@ -109,9 +116,7 @@
     background: white;
   }
   #box .cardinfo {
-    /*background: #5bc0de;*/
-    /*background: rgba(220,81,69,0.3);*/
-    background: rgba(51,204,204,0.5);
+    background: #EEEEEE;
 
   }
   #box .cardinfo .user_pic{
@@ -158,7 +163,7 @@
     float: left;
     margin: 5px;
     overflow: hidden;
-    box-shadow: 0 0 14px #20B2AA;
+    box-shadow: 0 0 14px olivedrab;
     position: relative;
   }
   #box .img_list img{
@@ -201,6 +206,8 @@
   .btn {
     display: block;
     margin: 15px auto 0;
+    background-color: olivedrab;
+    border-color: olivedrab;
   }
     /*遮罩层样式*/
   .shadow{

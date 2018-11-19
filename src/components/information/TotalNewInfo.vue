@@ -111,13 +111,13 @@
     position:relative;
   }
   .onediv h4 span{
-    color:red;
+    color:olivedrab;
   }
   .detail{
     cursor: pointer;
   }
   .detail:hover{
-    color:red;
+    color:olivedrab;
   }
   .span{
     position:absolute;

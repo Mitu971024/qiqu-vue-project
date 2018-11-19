@@ -31,12 +31,12 @@
     height: 50px;
     line-height: 50px;
     text-align: center;
-    background: cadetblue;
+    background: olivedrab;
     background-size: cover;
     border-radius: 5px;
     position: fixed;
     right: 10px;
-    bottom: 40px;
+    bottom: 120px;
     display: none;
     z-index: 100;
     cursor: pointer;

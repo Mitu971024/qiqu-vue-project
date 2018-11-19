@@ -158,21 +158,29 @@
         // console.log(this.address)
       },
       addExp: function () {
-        let _this = this;
-        axios.post(_this.$store.state.url + '/order/addexp', {
-            sName: _this.form.name,
-            sAddress: _this.address,
-            sphoneNumber: _this.form.phonenumber,
-            mId: window.localStorage.mId,
-          }
-        ).then(function (response) {
-          // console.log(response.data);
-        })
-        alert("添加成功");
-        _this.sName = null
-        _this.sAddress = null
-        _this.sphoneNumber = null
-        // _this.showHid()
+        if(this.form.name && this.address && this.from.phonenumber){
+          let _this = this;
+          axios.post(_this.$store.state.url + '/order/addexp', {
+              sName: _this.form.name,
+              sAddress: _this.address,
+              sphoneNumber: _this.form.phonenumber,
+              mId: window.localStorage.mId,
+            }
+          ).then(function (response) {
+            // console.log(response.data);
+          })
+          alert("添加成功");
+          _this.sName = null
+          _this.sAddress = null
+          _this.sphoneNumber = null
+          // _this.showHid()
+        }else {
+          this.$message({
+            showClose: true,
+            message: '请填写完整!',
+            type: 'info'
+          });
+        }
       },
       showHid: function () {
         this.show = !this.show;

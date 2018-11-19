@@ -23,7 +23,7 @@
     font-weight: bold;
     line-height: 60px;
     color: rgb(80,80,80);
-    border-bottom: 2px solid cadetblue;
+    border-bottom: 2px solid olivedrab;
     margin: 30px 210px;
   }
 </style>

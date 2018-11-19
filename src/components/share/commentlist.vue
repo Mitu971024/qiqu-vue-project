@@ -46,7 +46,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="sendMessage">发 送</el-button>
+        <el-button type="primary" @click="sendMessage" style="background: olivedrab; border-color: transparent">发 送</el-button>
       </div>
     </el-dialog>
     <!--结束-->
@@ -231,6 +231,7 @@
                     setTimeout(()=>{                             //提示评论成功
                       that.openComment();
                     },1000);
+                    this.form.comment = '';
                   }
                 })
                 return this.dialogFormVisible = false;
@@ -247,6 +248,8 @@
                     setTimeout(()=>{                            //提示回复成功
                       that.openreply();
                     },1000);
+                    this.form.comment = '';
+
                   }
                 })
 
@@ -289,7 +292,7 @@
     height: 35px;
     text-indent: 1em;
     border-radius: 5px;
-    border: 1px skyblue solid;
+    border: 1px olivedrab solid;
     /*margin-left: 15px;*/
     font-style: italic;
     margin-bottom: 20px;
@@ -360,7 +363,7 @@
   .reply_btn {
     display: inline-block;
     font-size: 13px;
-    color: #5f9ea0;
+    color: olivedrab;
     margin: 10px 0 0 15px;
     cursor: pointer;
   }
@@ -386,7 +389,7 @@
     padding: 6px;
     font-size: 13px;
     font-weight: bold;
-    color: #5f9ea0;
+    color: olivedrab;
     font-family: '幼圆';
   }
   .open {

@@ -237,7 +237,6 @@
     width: 20px;
     height: 100px;
     font-size:24px;
-    color:#aaa;
     position:absolute;
     left: 50px;
     top:50px;
@@ -278,7 +277,7 @@
     font-weight: bold;
   }
   .top .topcontent .detail:hover{
-    color: red;
+    color: olivedrab;
   }
   .centerleft{
     float: left;
@@ -292,8 +291,8 @@
     float: left;
   }
   .h2title hr{
-    height:4px;
-    background-color:#ccc;
+    height:3px;
+    background-color:#bbb;
     position:absolute;
     bottom:0;
     right:0;
@@ -329,7 +328,7 @@
     cursor: pointer;
   }
   .centertitle:hover{
-    color:red;
+    color:olivedrab;
   }
   .detail{
     cursor: pointer;

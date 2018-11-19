@@ -59,7 +59,9 @@
             </router-link>
           </ul>
           <ul class="nav navbar-nav navbar-right co-2">
-            <!--<li><a class="glyphicon glyphicon-search"></a></li>-->
+            <li @click="Shop" class="S1"><a class="glyphicon glyphicon-shopping-cart">
+              <span>购物车</span>
+            </a></li>
             <li @click="Login" class="s1" v-if="this.$store.state.index != 1"><a class="glyphicon glyphicon-user">
               <span>登录</span>
             </a></li>
@@ -100,6 +102,15 @@
     },
     mounted(){
       this.init();
+    },
+    watch:{
+      '$route' (to,from) {
+        if(to.path=='/' && from.path=='/login'){
+          const self = this;
+          const storage = window.localStorage;
+          self.myPic1 = self.$store.state.url + storage.mImg;
+        }
+      }
     },
     methods:{
       init(){
@@ -146,6 +157,19 @@
       myShop(){
         const self = this;
         self.$router.push({path: '/order'})
+      },
+      Shop(){
+        const self = this;
+        if(self.$store.state.index == 1){
+          self.$router.push({path: '/shoppingcart'})
+        }else {
+          self.$message({
+            showClose: true,
+            message: '请先登录！',
+            type: 'info'
+          });
+          self.$router.push({path: '/login'})
+        }
       }
     }
   }
@@ -168,10 +192,12 @@
   .marginT1{margin-top: 33px;}
   .navbar-right{margin-right: 1%}
   .marginT{margin-top: 30px;}
-  .s1{position: relative;}
+  .s1{position: relative;cursor: pointer;}
   .s1>a>span{position: absolute;bottom: -8px;left: 9px;
     display: none;
   }
+  .S1{position: relative;width: 60px;margin-top: -10px;cursor: pointer;}
+  .S1>a>span{position: absolute;bottom: -8px;left: 9px;}
   .b1{position: relative;background-color: #666;border-radius:12px;}
   .b1 .img{
     width: 50px;
@@ -196,10 +222,11 @@
   .b1>ul>.li2{margin-bottom: 20px;cursor: pointer;}
   .b1>ul>li>a{text-decoration: none;color: gray;}
   .b1>ul>li>a:hover{color: white;}
-  .s1:hover>a>span{display: block;}
+  .s1:hover>a>span{display: block;cursor: pointer;}
+  .S1:hover>a>span{cursor: pointer;}
   .co-2>li>a{color: yellow;}
   .co-2>li{margin-right: 30px;}
-  .ulStyle{width: 80%}
+  .ulStyle{width: 75%}
   .ulStyle>li{
     width: 16%;
     font-size: 18px;
@@ -212,7 +239,7 @@
     background:none;
     transition:ease 0.4s;
   }
-  .liStyle:hover .line{background:#ccc;}
+  .liStyle:hover .line{background:#eee;}
   .liStyle .line-top{
     width:0;
     height:2px;
