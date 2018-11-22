@@ -72,7 +72,7 @@
       </div>
       <router-view></router-view>
     </div>
-    <app-foot class="foot"></app-foot>
+    <app-foot></app-foot>
   </div>
 </template>
 
@@ -155,10 +155,11 @@
     methods: {
       onSelected(data) {
         this.address= data.province.value+data.city.value+data.area.value;
-        // console.log(this.address)
+        console.log(this.address)
       },
+
       addExp: function () {
-        if(this.form.name && this.address && this.from.phonenumber){
+        if(this.form.name,this.address,this.form.phonenumber){
           let _this = this;
           axios.post(_this.$store.state.url + '/order/addexp', {
               sName: _this.form.name,
@@ -167,19 +168,16 @@
               mId: window.localStorage.mId,
             }
           ).then(function (response) {
-            // console.log(response.data);
+            console.log(response.data);
+            console.log("123"+_this.address);
           })
           alert("添加成功");
           _this.sName = null
           _this.sAddress = null
           _this.sphoneNumber = null
           // _this.showHid()
-        }else {
-          this.$message({
-            showClose: true,
-            message: '请填写完整!',
-            type: 'info'
-          });
+        }else{
+          alert("请填写完整")
         }
       },
       showHid: function () {
@@ -187,7 +185,7 @@
         // setTimeout(function() {
         let _this = this
         axios.post(_this.$store.state.url + '/order/showexp').then(function (response) {
-          // console.log(response.data);
+          console.log(response.data);
           _this.exp = response.data.data;
         }).catch(function (error) {
           console.log(error);
@@ -206,7 +204,7 @@
             oImg: goods[i].cBigimg,
             mId: goods[i].mId,
           }).then(function (response) {
-            // console.log(response.data);
+            console.log(response.data);
           })
         }
       }
@@ -222,7 +220,6 @@
 </script>
 
 <style scoped>
-  .foot{margin-top: 50px;}
   .upload p{
     margin: 0;
     padding: 0;

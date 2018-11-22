@@ -18,82 +18,88 @@
         </li>
       </ul>
     </div>
-    <button class="btn btn-lg btn-info">已经到底了</button>
-    <div class="shadow" @click="hidebig">
-      <img :src='`${HImg}/uploadfiles/` + current_url' alt="">
-    </div>
+    <button class="btn btn-lg">已经到底了</button>
+      <div class="shadow" @click="hidebig">
+        <img :src='`${HImg}/uploadfiles/` + current_url' alt="">
+      </div>
+      <go-top v-if="flag"></go-top>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
-    export default {
-        name: "showlist",
-      props:["current_info"],
-      data(){
-        return{
-          allData: null,
-          current_url: null,
-          HImg:'',
+  import axios from 'axios';
+  import goTop from './gotop'
+  export default {
+    name: "showlist",
+    props:["current_info"],
+    data(){
+      return{
+        allData: null,
+        current_url: null,
+        HImg:'',
+        flag:true,
+      }
+    },
+    components:{
+      goTop
+    },
+    computed:{
+      url(){
+        return this.$store.state.url;
+      }
+    },
+    watch:{
+      "current_info"(value){
+        if (value) {
+          this.getImg();
+          return;
         }
       },
-      computed:{
-        url(){
-          return this.$store.state.url;
-        }
+    },
+    created(){
+      this.getImg();
+      // this.allData.unshift(this.current_info);  //接收父组件的数据放进数组中
+    },
+    mounted(){
+      this.HImg = this.$store.state.url;
+      $(function () {
+        $("#box .img_list").hover(function(){
+          $(this).siblings().stop().fadeTo(500,0.5);
+        },function(e){
+          $("#box .img_list").stop().fadeTo(500,1);
+        });
+      })
+
+
+    },
+    methods:{
+      getImg(){
+        const that = this;
+        axios.get(that.$store.state.url + '/share/allcard').then(result=>{
+          that.allData = result.data.data;
+          // console.log(that.allData)
+        }).catch(err=>{
+          console.log(err)
+        })
       },
-      watch:{
-        // "current_info"(value, oldvalue){
-        //   console.log(value)
-        //   if (value) {
-        //     this.getImg();
-        //   }
-        // },
-        "current_info"(value,oldvalue){
-          const self = this;
-          if(value){
-            self.getImg();
-          }
-        }
+      showbig(url){
+        this.current_url = url;
+        $(".shadow").css({"top":$(window).scrollTop()+'px',"opacity":"1","z-index":"1",});
+        $('html').css('overflow','hidden'); //禁止滚动条
+        this.flag = false;
       },
-      created(){
-        this.getImg();
-        // this.allData.unshift(this.current_info);  //接收父组件的数据放进数组中
+      hidebig(){
+        $('.shadow').css({"top":$(window).scrollTop()+'px',"opacity":"0","z-index":"-1"});
+        $('html').css('overflow','auto'); //开启滚动
+        this.flag = true;
       },
-      mounted(){
-          this.HImg = this.$store.state.url;
-          $(function () {
-            $("#box .img_list").hover(function(e){
-              $(this).siblings().stop().fadeTo(500,0.5);
-            },function(e){
-              $("#box .img_list").stop().fadeTo(500,1);
-            });
-          })
-      },
-      methods:{
-        getImg(){
-          const that = this;
-         axios.get(this.$store.state.url + '/share/allcard').then(result=>{
-            that.allData = result.data.data;
-            // console.log(that.allData)
-          }).catch(err=>{
-            console.log(err)
-          })
-        },
-        showbig(url){
-          this.current_url = url;
-          $(".shadow").css({"left":"0","top":$(window).scrollTop()+'px'});
-        },
-        hidebig(){
-          $('.shadow').css("left","-100%");
-        },
-        showcoll(){
-          $(function () {
-            $('card_list').slideToggle(800);
-          })
-        }
-      },
-    }
+      showcoll(){
+        $(function () {
+          $('card_list').slideToggle(800);
+        })
+      }
+    },
+  }
 </script>
 
 <style scoped>
@@ -117,7 +123,6 @@
   }
   #box .cardinfo {
     background: #EEEEEE;
-
   }
   #box .cardinfo .user_pic{
     display: inline-block;
@@ -177,7 +182,6 @@
     transform: scale(1.2);
     transition: all 1s;
   }
-
   #box .img_list .inner{
     width: 1px;
     height: 200px;
@@ -199,25 +203,22 @@
       transform: skew(-45deg) translate(800px);
     }
   }
-
-
-
-
   .btn {
     display: block;
     margin: 15px auto 0;
     background-color: olivedrab;
-    border-color: olivedrab;
+    color: aliceblue;
   }
-    /*遮罩层样式*/
+  /*遮罩层样式*/
   .shadow{
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,.7);
     position: absolute;
     top: 0;
-    left: -100%;
-    transition: 1s;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s;
   }
   .shadow img{
     display: block;
